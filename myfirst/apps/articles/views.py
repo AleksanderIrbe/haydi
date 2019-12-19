@@ -1,7 +1,7 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from .models import Article
+from .models import Article, Comment
 def index(request):
 	latest_articles_list = Article.objects.order_by('-pub_date')[:5]
 	return render(request, 'articles/list.html', {'latest_articles_list': latest_articles_list})
